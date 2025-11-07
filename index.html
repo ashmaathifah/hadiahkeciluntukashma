@@ -1,11 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Hadiah Kecil Untuk Ashma</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dukung Karya — Ashma' Athifah</title>
+
+  <style>
+    :root{
+      --bg: #f8fcff;        /* putih kebiruan */
+      --card: #eaf6ff;      /* kartu lembut */
+      --accent: #3fb1e0;    /* biru muda */
+      --text: #15313a;      /* teks gelap */
+      --muted: #5b6f76;
+      --radius: 14px;
+      --shadow: 0 8px 20px rgba(21,49,58,0.06);
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg, var(--bg), #ffffff 60%);
+      color:var(--text);
+      padding:24px;
+    }
+
+    .card{
+      width:100%;
+      max-width:720px;
+      background:linear-gradient(180deg, #ffffff, var(--card));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      text-align:center;
+    }
+
+    .brand {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:6px;
+    }
+
+    .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 2px 6px rgba(63,177,224,0.2);
+    }
+
+    h1{
+      margin:6px 0 4px;
+      font-size:22px;
+      letter-spacing:0.2px;
+    }
+
+    p.lead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      max-width:62%;
+    }
+
+    .qwrap{
+      margin-top:20px;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .qcard{
+      background:#fff;
+      border-radius:10px;
+      padding:14px;
+      border:1px solid rgba(21,49,58,0.04);
+      box-shadow:0 4px 14px rgba(21,49,58,0.04);
+    }
+
+    .qcard img{
+      display:block;
+      max-width:240px;
+      width:100%;
+      height:auto;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .info {
+      text-align:left;
+      max-width:320px;
+    }
+
+    .info h3{
+      margin:0 0 6px;
+      font-size:18px;
+      color:var(--text);
+    }
+
+    .info p {
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .btn {
+      display:inline-block;
+      background:var(--accent);
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 6px 18px rgba(63,177,224,0.12);
+    }
+
+    .small {
+      display:block;
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .back {
+      display:inline-block;
+      margin-top:18px;
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    /* modal (enlarge QR) */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(8,16,20,0.45);
+      z-index:99;
+    }
+
+    .modal.open{display:flex}
+    .modal .big{
+      background:#fff;padding:18px;border-radius:12px;
+      box-shadow:0 30px 80px rgba(5,10,20,0.5);
+      max-width:90%;
+    }
+    .modal .big img{max-width:420px;width:100%;height:auto;border-radius:8px}
+    .close {
+      display:block;margin-top:12px;text-align:center;color:var(--muted);cursor:pointer;
+    }
+
+    @media (max-width:520px){
+      .qcard img{max-width:200px}
+      .info{max-width:100%}
+      p.lead{max-width:90%}
+    }
+  </style>
 </head>
 <body>
-  <h1>🎁 Hadiah Kecil Untuk Ashma 🎁</h1>
-  <p>Halo, ini baru halaman awalnya. Nanti kita bisa hias cantik ✨</p>
+
+  <div class="card">
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <div style="text-align:left">
+        <div style="font-size:12px;color:var(--muted)">Dukungan untuk</div>
+        <div style="font-weight:700;color:var(--text)">Ashma' Athifah</div>
+      </div>
+    </div>
+
+    <h1>Terima kasih sudah mampir 🌙</h1>
+    <p class="lead">Jika tulisan dan karyaku pernah menemani, kamu bisa mendukung perjalananku lewat donasi kecil. Setiap dukungan sangat berarti.</p>
+
+    <div class="qwrap">
+      <div class="qcard">
+        <!-- Ganti nama file ini menjadi qris.png (letakkan di folder yang sama) -->
+        <a href="qrisgopay.jpeg" target="_blank" title="Buka gambar QR di tab baru">
+          <img src="qrisgopay.jpeg" alt="QRIS GoPay Ashma' — scan untuk donasi" id="qimg" />
+        </a>
+      </div>
+
+      <div class="info">
+        <h3>Scan QR di samping</h3>
+        <p>Gunakan fitur 'Scan QR' di aplikasi pembayaran (GoPay / e-wallet lain) lalu pilih jumlah yang ingin didonasikan.</p>
+
+        <!-- Optional: langsung buka link pembayaran (jika ingin) -->
+        <a class="btn" id="openLink" href="#" target="_blank">Buka Link Pembayaran (opsional)</a>
+
+        <span class="small">Kalau sudah transfer, kamu juga bisa mengirim bukti ke Instagram: <strong>@aa.thifah_</strong></span>
+      </div>
+    </div>
+
+    <a class="back" href="buatAshma.html">← Kembali ke Beranda</a>
+  </div>
+
+  <!-- Modal untuk memperbesar QR -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="big">
+      <img src="qrisgopay.jpeg" alt="QR besar">
+      <div class="close" id="closeModal">Tutup</div>
+    </div>
+  </div>
+
+  <script>
+    // klik gambar untuk memperbesar
+    const qimg = document.getElementById('qimg');
+    const modal = document.getElementById('modal');
+    const close = document.getElementById('closeModal');
+
+    qimg && qimg.addEventListener('click', (e)=>{
+      e.preventDefault();
+      modal.classList.add('open');
+    });
+
+    close && close.addEventListener('click', ()=>{
+      modal.classList.remove('open');
+    });
+
+    modal && modal.addEventListener('click', (ev)=>{
+      if(ev.target === modal) modal.classList.remove('open');
+    });
+
+    // Jika kamu ingin tombol "Buka Link Pembayaran" mengarah ke link Gojek:
+    // ganti href di bawah dengan format: https://link.gojek.com/pay/089525089922
+    const openLink = document.getElementById('openLink');
+    openLink.href = "https://link.gojek.com/pay/089525089922";
+    // contoh: openLink.href = "https://link.gojek.com/pay/089525089922";
+  </script>
+
 </body>
 </html>
